@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Yield Max Ferti Optima</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://images.unsplash.com/photo-1588411320670-4be3ad9e206d?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            padding-top: 70px;
+            color: #333;
+        }
+
+        nav {
+            background-color: rgba(0, 123, 255, 0.9);
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-container h1 {
+            text-align: center;
+            font-size: 42px;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #0288d1;
+            font-size: 28px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .about-container p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            border-left: 6px solid #ff9800;
+            padding: 15px 20px;
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #795548;
+            border-radius: 8px;
+        }
+
+        .image-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .about-container {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
+        <a href="shopnow.html">Shop Now</a>
+        <a href="weather.html">Weather</a>
+    </nav>
+
+    <div class="about-container" data-aos="fade-up">
+        <h1>About Yield Max Ferti Optima</h1>
+
+        <div class="image-section" data-aos="zoom-in">
+            <img src="https://blog.agribazaar.com/wp-content/uploads/2024/06/1.jpg" alt="Farming Technology">
+        </div>
+
+        <h2 class="section-title" data-aos="fade-right">🌾 About the Project</h2>
+        <p data-aos="fade-up">
+            Yield Max Ferti Optima is an intelligent web-based system designed to help farmers make informed decisions about fertilizer usage.
+            It utilizes machine learning algorithms and agricultural data analysis to recommend the most suitable fertilizers based on soil type, nutrient levels, crop type, and local climate conditions.
+            The goal is to improve crop yield while ensuring environmental sustainability.
+        </p>
+
+        <div class="image-section" data-aos="zoom-in">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuVCtrOzUxb_qp6PTDnqL0tpdQIR_MKsxBKQ&s" alt="Soil Testing">
+        </div>
+
+        <h2 class="section-title" data-aos="fade-left">✅ Benefits</h2>
+        <p data-aos="fade-up">
+            - Boosts crop productivity through accurate fertilizer usage. <br>
+            - Prevents overuse or underuse of fertilizers. <br>
+            - Promotes eco-friendly and sustainable farming practices. <br>
+            - Reduces farming costs and improves soil health. <br>
+            - Increases awareness of soil testing and precision agriculture.
+        </p>
+
+        <h2 class="section-title" data-aos="fade-right">📌 Usage Instructions</h2>
+        <p data-aos="fade-up">
+            Farmers are encouraged to get their soil tested using any local soil testing lab or kit. The results should include data such as nitrogen, phosphorus, potassium levels, pH, moisture, and crop name.
+            These values are then input into the system to receive personalized fertilizer recommendations.
+        </p>
+
+        <div class="highlight" data-aos="zoom-in">
+            📢 Fill the form to get accurate fertilizer recommendations by conducting a soil test and entering the values!
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Yield Max Ferti Optima. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+</body>
+</html>

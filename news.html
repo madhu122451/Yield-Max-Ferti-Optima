@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agriculture News</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#a1c4fd,#c2e9fb);
+      display:flex; align-items:center; justify-content:center;
+      height:100vh; overflow:hidden;
+    }
+    .container {
+      background:rgba(255,255,255,0.8);
+      backdrop-filter:blur(15px);
+      padding:30px 40px; border-radius:20px;
+      box-shadow:0 15px 30px rgba(0,0,0,0.2);
+      width:350px; text-align:center;
+      animation:fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}
+    }
+    h2 { color:#003366; margin-bottom:20px }
+    #newsContainer { margin-top:20px; text-align:left; max-height:400px; overflow-y:auto }
+    .newsItem {
+      background:#fff; padding:15px; margin-bottom:15px;
+      border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);
+      transition:transform .2s;
+    }
+    .newsItem:hover { transform:translateY(-5px) }
+    .newsItem img {
+      width:100%; border-radius:8px; margin-bottom:10px;
+    }
+    .newsItem h3 { color:#003366; font-size:18px; margin-bottom:10px }
+    .newsItem p { color:#555; font-size:14px; margin-bottom:10px }
+    .error { color:red; font-weight:bold }
+    .loader {
+      border:4px solid #f3f3f3; border-top:4px solid #3498db;
+      border-radius:50%; width:40px; height:40px;
+      animation:spin 1s linear infinite; margin:20px auto;
+    }
+    @keyframes spin { to{transform:rotate(360deg)} }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🌾 Agriculture News</h2>
+    <div id="newsContainer">
+      <div class="loader" id="loader"></div>
+      <p class="error" id="errorMessage" style="display:none"></p>
+    </div>
+  </div>
+
+  <script>
+    const apiKey       = 'b93856e1c57c432ea0cc9b9ef8572ac8';
+    const rawUrl       = `https://newsapi.org/v2/everything?q=agriculture&apiKey=${apiKey}&pageSize=5`;
+    const proxyUrl     = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(rawUrl);
+    const newsContainer= document.getElementById('newsContainer');
+    const loader       = document.getElementById('loader');
+    const errorMessage = document.getElementById('errorMessage');
+
+    window.onload = async function getNews() {
+      try {
+        const res = await fetch(proxyUrl);
+        const data = await res.json();
+        loader.style.display = 'none';
+
+        if (data.status === 'ok' && data.articles.length) {
+          renderArticles(data.articles);
+        } else {
+          throw new Error(data.message || 'no data');
+        }
+      } catch (err) {
+        console.error(err);
+        loader.style.display        = 'none';
+        errorMessage.style.display  = 'block';
+        errorMessage.textContent    = 'Unable to load news. Please try again later.';
+      }
+    };
+
+    function renderArticles(articles) {
+      newsContainer.innerHTML = ''; // clear
+      for (let a of articles) {
+        const div = document.createElement('div');
+        div.className = 'newsItem';
+        div.innerHTML = `
+          ${a.urlToImage? `<img src="${a.urlToImage}" alt>` : ''}
+          <h3><a href="${a.url}" target="_blank">${a.title}</a></h3>
+          <p>${a.description || ''}</p>`;
+        newsContainer.appendChild(div);
+      }
+    }
+  </script>
+
+</body>
+</html>

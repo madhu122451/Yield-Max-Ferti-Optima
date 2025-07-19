@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services - Fertilizer Recommendation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap & AOS (Animate On Scroll) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+            margin-top: 80px;
+        }
+
+        nav {
+            background-color: #007bff;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #004085;
+            font-size: 40px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .service-card {
+            border-radius: 20px;
+            background: #ffffff;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #28a745;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .service-icon {
+                font-size: 32px;
+            }
+        }
+    </style>
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="services.html">Services</a>
+    <a href="shopnow.html">Shop now</a>
+    <a href="weather.html">Weather</a>
+</nav>
+
+<div class="container py-5">
+    <h1 data-aos="fade-down">Our Services</h1>
+
+    <div class="row">
+        <div class="col-md-6" data-aos="fade-up">
+            <div class="service-card text-center">
+                <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                <h4>Fertilizer Recommendations</h4>
+                <p>Get personalized fertilizer advice based on soil data, crop type, and current agricultural best practices. Improve yields and reduce waste.</p>
+            </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card text-center">
+                <div class="service-icon"><i class="fas fa-store"></i></div>
+                <h4>e-Commerce for Fertilizers</h4>
+                <p>Buy recommended fertilizers from trusted vendors directly through our platform. Quick delivery, genuine products, and farmer-friendly pricing.</p>
+            </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card text-center">
+                <div class="service-icon"><i class="fas fa-cloud-sun"></i></div>
+                <h4>Weather-based Suggestions</h4>
+                <p>Receive updates and alerts based on local weather data, helping you make timely decisions about irrigation, fertilization, and harvesting.</p>
+            </div>
+        </div>
+
+        <!-- Guidance Section -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card text-center">
+                <div class="service-icon"><i class="fas fa-question-circle"></i></div>
+                <h4>Guidance for Farmers</h4>
+                <p>Access expert guidance on best farming practices, soil management, and efficient fertilization. </p>
+            </div>
+        </div>
+
+        <!-- Daily Agriculture News Service Card -->
+<div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+    <div class="service-card text-center">
+      <div class="service-icon"><i class="fas fa-newspaper"></i></div>
+      <h4>Daily Agriculture News</h4>
+      <p>Stay up-to-date with today’s top headlines in agriculture—market trends, weather alerts, and farming insights delivered daily.</p>
+    </div>
+  </div>
+  
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Fertilizer Recommendation System. All rights reserved.
+</footer>
+
+<!-- AOS Animation Script -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>

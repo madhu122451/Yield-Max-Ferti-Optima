@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Weather Checker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body style */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    /* Style for the navigation bar */
+    nav {
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 14px 20px;
+        font-size: 16px;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: #575757;
+        color: #f1f1f1;
+    }
+
+    /* Container style for weather info */
+    .container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 350px;
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        color: #003366;
+        margin-bottom: 25px;
+    }
+
+    /* Input field style */
+    input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 20px;
+        font-size: 16px;
+        outline: none;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Button style */
+    button {
+        padding: 12px 25px;
+        border: none;
+        background: #007bff;
+        color: white;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    /* Style for weather result */
+    #weatherResult {
+        margin-top: 25px;
+        font-size: 17px;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* Error message style */
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+
+    /* Success message animation */
+    .success {
+        animation: pop 0.4s ease;
+    }
+
+    /* Pop animation for success message */
+    @keyframes pop {
+        0% { transform: scale(0.9); opacity: 0.5; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Style for city suggestions */
+    .suggestions {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        width: calc(100% - 24px);
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .suggestions li {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .suggestions li:hover {
+        background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="services.html">Services</a>
+    <a href="shopnow.html">Shop Now</a>
+    <a href="weather.html">Weather</a>
+  </nav>
+
+  <div class="container">
+    <h2>🌤️ Weather Forecast</h2>
+    <input type="text" id="cityInput" placeholder="Enter city name" oninput="searchCities()" autocomplete="off"/>
+    <ul id="suggestions" class="suggestions"></ul>
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult"></div>
+  </div>
+
+  <script>
+    const apiKey = "e5428e1178658d3160e07679e6da4010";
+    
+    // Function to search cities from OpenWeatherMap API
+    function searchCities() {
+      const cityInput = document.getElementById("cityInput");
+      const query = cityInput.value.trim();
+
+      // If the input is empty, clear suggestions
+      if (query === "") {
+        document.getElementById("suggestions").innerHTML = "";
+        return;
+      }
+
+      // OpenWeatherMap City Search URL (use this for city search)
+      const url = `https://api.openweathermap.org/data/2.5/find?q=${query}&appid=${apiKey}&units=metric`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const suggestionsList = document.getElementById("suggestions");
+          suggestionsList.innerHTML = ""; // Clear previous suggestions
+
+          // Display suggestions
+          if (data.list) {
+            data.list.forEach(city => {
+              const li = document.createElement("li");
+              li.textContent = `${city.name}, ${city.sys.country}`;
+              li.onclick = () => selectCity(city.name); // Set city when clicked
+              suggestionsList.appendChild(li);
+            });
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching city data:", error);
+        });
+    }
+
+    // Function to fill the input with the selected city
+    function selectCity(cityName) {
+      document.getElementById("cityInput").value = cityName;
+      document.getElementById("suggestions").innerHTML = ""; // Clear suggestions
+    }
+
+    // Function to fetch and display weather data
+    function getWeather() {
+      const city = document.getElementById("cityInput").value.trim();
+      const resultDiv = document.getElementById("weatherResult");
+
+      if (!city) {
+        resultDiv.innerHTML = `<p class="error">Please enter a city name.</p>`;
+        return;
+      }
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data.cod === 200) {
+            resultDiv.className = "success";
+            resultDiv.innerHTML = `
+              <p><strong>📍 City:</strong> ${data.name}, ${data.sys.country}</p>
+              <p><strong>🌡️ Temperature:</strong> ${data.main.temp} °C</p>
+              <p><strong>🌤️ Condition:</strong> ${data.weather[0].main} - ${data.weather[0].description}</p>
+              <p><strong>💧 Humidity:</strong> ${data.main.humidity}%</p>
+              <p><strong>💨 Wind Speed:</strong> ${data.wind.speed} m/s</p>
+            `;
+          } else {
+            resultDiv.innerHTML = `<p class="error">City not found!</p>`;
+          }
+        })
+        .catch(error => {
+          console.error("Fetch error:", error);
+          resultDiv.innerHTML = `<p class="error">Something went wrong!</p>`;
+        });
+    }
+  </script>
+
+</body>
+</html>

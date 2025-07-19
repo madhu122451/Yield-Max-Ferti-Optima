@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fertilizer Usage Guidance</title>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #f1f8e9);
+      color: #333;
+    }
+    .guidance-header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: slideDown 1s ease;
+    }
+    .guidance-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 30px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .guidance-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      border-left: 6px solid #66bb6a;
+    }
+    .guidance-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .tips {
+      margin-top: 10px;
+      padding: 10px;
+      background: #f1f8e9;
+      border-radius: 8px;
+      animation: fadeInUp 0.8s ease;
+    }
+    .tips ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .tips ul li {
+      margin: 4px 0;
+    }
+    .guidance-footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #2e7d32;
+      color: white;
+    }
+    /* Button Styling */
+    .plant-guidance-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      background-color: #2e7d32;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .plant-guidance-btn:hover {
+      background-color: #388e3c;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+ 
+</head>
+<body>
+  <header class="guidance-header">
+    <h1>🌾 Fertilizer Usage Guidance</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="services.html">Services</a>
+      
+      <a href="weather.html">Weather</a>
+    </nav>
+    
+  </header>
+
+  <section class="guidance-container">
+    <div class="guidance-card">
+      <h2>Urea</h2>
+      <p><strong>Amount:</strong> 100 kg/ha</p>
+      <p><strong>Soil Type:</strong> Alluvial, Loamy</p>
+      <p><strong>Benefits:</strong> Promotes fast nitrogen absorption for leafy growth.</p>
+      <div class="tips">
+        <p><strong>✅ Do:</strong></p>
+        <ul><li>Apply early in growth stage.</li><li>Irrigate immediately after use.</li></ul>
+        <p><strong>🚫 Don't:</strong></p>
+        <ul><li>Avoid dry soil usage.</li><li>Avoid application in wind.</li></ul>
+      </div>
+    </div>
+
+    <div class="guidance-card">
+      <h2>DAP (Diammonium Phosphate)</h2>
+      <p><strong>Amount:</strong> 60–90 kg/ha</p>
+      <p><strong>Soil Type:</strong> Neutral to slightly acidic</p>
+      <p><strong>Benefits:</strong> Enhances root development and early growth.</p>
+      <div class="tips">
+        <p><strong>✅ Do:</strong></p>
+        <ul><li>Use at sowing time mixed with soil.</li></ul>
+        <p><strong>🚫 Don't:</strong></p>
+        <ul><li>Do not place directly under seeds.</li></ul>
+      </div>
+    </div>
+
+    <div class="guidance-card">
+      <h2>MOP (Muriate of Potash)</h2>
+      <p><strong>Amount:</strong> 50–70 kg/ha</p>
+      <p><strong>Soil Type:</strong> Clayey, Black soil</p>
+      <p><strong>Benefits:</strong> Improves resistance to pests and drought.</p>
+      <div class="tips">
+        <p><strong>✅ Do:</strong></p>
+        <ul><li>Apply during flowering and fruiting.</li></ul>
+        <p><strong>🚫 Don't:</strong></p>
+        <ul><li>Avoid use in saline soils.</li></ul>
+      </div>
+    </div>
+
+    <div class="guidance-card">
+      <h2>SSP (Single Super Phosphate)</h2>
+      <p><strong>Amount:</strong> 100–150 kg/ha</p>
+      <p><strong>Soil Type:</strong> Acidic and neutral soils</p>
+      <p><strong>Benefits:</strong> Provides phosphorus and calcium to plants.</p>
+      <div class="tips">
+        <p><strong>✅ Do:</strong></p>
+        <ul><li>Mix thoroughly in soil before sowing.</li></ul>
+        <p><strong>🚫 Don't:</strong></p>
+        <ul><li>Avoid use in alkaline soils.</li></ul>
+      </div>
+    </div>
+    <div class="guidance-card">
+        <h2>Compost</h2>
+        <p><strong>Amount:</strong> 5–10 tons/ha</p>
+        <p><strong>Soil Type:</strong> All types</p>
+        <p><strong>Benefits:</strong> Enhances organic matter and soil fertility.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Apply during land preparation.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Do not apply fresh compost directly.</li></ul>
+        </div>
+      </div>
+  
+      <div class="guidance-card">
+        <h2>Vermicompost</h2>
+        <p><strong>Amount:</strong> 2–4 tons/ha</p>
+        <p><strong>Soil Type:</strong> Sandy loam</p>
+        <p><strong>Benefits:</strong> Boosts microbial activity and improves structure.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Use with irrigation for better results.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Don’t expose to direct sunlight.</li></ul>
+        </div>
+      </div>
+  
+      <div class="guidance-card">
+        <h2>NPK 20:20:20</h2>
+        <p><strong>Amount:</strong> 100–120 kg/ha</p>
+        <p><strong>Soil Type:</strong> All types</p>
+        <p><strong>Benefits:</strong> Balanced nutrient mix for all stages.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Use as top dressing.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Don’t apply in high heat or wind.</li></ul>
+        </div>
+      </div>
+  
+      <div class="guidance-card">
+        <h2>Bone Meal</h2>
+        <p><strong>Amount:</strong> 300–500 kg/ha</p>
+        <p><strong>Soil Type:</strong> Acidic soils</p>
+        <p><strong>Benefits:</strong> Slow-release phosphorus for root crops.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Use in root zone for effectiveness.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Don’t overuse in alkaline soils.</li></ul>
+        </div>
+      </div>
+  
+      <div class="guidance-card">
+        <h2>Farmyard Manure (FYM)</h2>
+        <p><strong>Amount:</strong> 10–20 tons/ha</p>
+        <p><strong>Soil Type:</strong> All types</p>
+        <p><strong>Benefits:</strong> Improves texture, moisture, and microbe levels.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Apply well-rotted manure during ploughing.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Avoid fresh FYM directly on crops.</li></ul>
+        </div>
+      </div>
+  
+      <div class="guidance-card">
+        <h2>Green Manure</h2>
+        <p><strong>Amount:</strong> Grow and plough in-situ</p>
+        <p><strong>Soil Type:</strong> Loamy soils</p>
+        <p><strong>Benefits:</strong> Fixes nitrogen and improves organic content.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Use sunhemp or dhaincha as green manure crops.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Don’t plough in too late before sowing main crop.</li></ul>
+        </div>
+      </div>
+  
+      <div class="guidance-card">
+        <h2>Neem Coated Urea</h2>
+        <p><strong>Amount:</strong> Same as Urea (100 kg/ha)</p>
+        <p><strong>Soil Type:</strong> All soils</p>
+        <p><strong>Benefits:</strong> Slows nitrogen release and reduces loss.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Split application is effective.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Avoid mixing with other nitrogen fertilizers.</li></ul>
+        </div>
+      </div>
+  
+      <div class="guidance-card">
+        <h2>Micronutrient Mix</h2>
+        <p><strong>Amount:</strong> As per label (typically 10 kg/ha)</p>
+        <p><strong>Soil Type:</strong> Deficient soils (Zn, Fe, B)</p>
+        <p><strong>Benefits:</strong> Corrects trace nutrient deficiencies.</p>
+        <div class="tips">
+          <p><strong>✅ Do:</strong></p>
+          <ul><li>Use after soil test results.</li></ul>
+          <p><strong>🚫 Don't:</strong></p>
+          <ul><li>Do not overuse; follow label strictly.</li></ul>
+        </div>
+      </div>
+    </section>
+    <button class="plant-guidance-btn" onclick="window.location.href='calender.html'">🌱 Plant Guidance</button>
+    <footer class="guidance-footer">
+      <p>© 2025 Yield Max Ferti Optima – All rights reserved</p>
+    </footer>
+  </body>
+  </html>
+  

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/736x/37/cf/ba/37cfbadb8d69410829b02ffc12d87f69.jpg'); 
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .error-message {
+            color: red;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Fertilizer Recommendation</h1>
+        <p>Based on the input data, we recommend: <strong id="recommendation"></strong></p>
+        <button onclick="window.location.href='learn.html'">Back to Form</button>
+        <p class="error-message" id="error-message"></p>
+    </div>
+
+    <script>
+        // Retrieve recommendation from localStorage
+        const recommendation = localStorage.getItem('recommendation');
+        
+        // Display recommendation if available, else show error message
+        if (recommendation) {
+            document.getElementById('recommendation').textContent = recommendation;
+        } else {
+            document.getElementById('error-message').textContent = "Error: No recommendation found. Please ensure you have provided all the correct inputs and try again.";
+        }
+    </script>
+
+</body>
+</html>
